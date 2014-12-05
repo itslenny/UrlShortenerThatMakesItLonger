@@ -14,7 +14,7 @@ if(config.use_env_variable){
   config.password=db_info[3];
   config.host=db_info[4];  
   config.port=db_info[5];  
-  config.database=db_info[5];  
+  config.database=db_info[6];  
 }
 //////////////////////////////
 
