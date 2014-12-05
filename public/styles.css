@@ -1,0 +1,18 @@
+.content-row{
+    padding: 0;
+    margin-top: 50vh;
+}
+
+.content-row .col-md-4{
+    height: 180px;
+    padding: 0;
+    margin-top: -90px;
+    background: #CCCCCC;
+    border: 2px dashed #8888FF;
+    border-radius: 10px;
+}
+
+.content-row input{
+    display: inline-block;
+    width: 90%;
+}

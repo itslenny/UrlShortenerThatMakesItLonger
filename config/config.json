@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "lenny",
+    "password": null,
+    "database": "sql_test_development",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "lenny",
+    "password": null,
+    "database": "sql_test_test",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "lenny",
+    "password": null,
+    "database": "sql_test_production",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  }
+}
