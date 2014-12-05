@@ -37,11 +37,10 @@ app.get('/:hash',function(req,res){
             res.redirect(url.url);
         }
     })
-    
 });
 
 models.sequelize.sync().success(function () {
-  var server = app.listen(3000, function() {
+  var server = app.listen(process.env.PORT || 3000, function() {
     console.log('Express server listening on port ' + server.address().port);
   });
 });
