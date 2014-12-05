@@ -25,6 +25,7 @@ h1.my-title{
     height: 105px;
     top: 20px;
     padding: 16px 0 20px 0;
+    z-index: 55;
 }
 h3{
     font-family: 'Grand Hotel', cursive;
