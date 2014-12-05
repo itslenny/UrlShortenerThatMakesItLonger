@@ -10,13 +10,25 @@ app.use(express.static(__dirname + '/public'));
 
 //home page (with create box)
 app.get('/',function(req,res){
-    res.render('index');
+    res.render('index',{err:req.query.err||false});
 });
 
 //create post route
 app.post('/create',function(req,res){
     var url = req.body.url;
+
+    //cheap attempt at normalizing
+    if(url.indexOf('www.')===0) url.substr(4);
+
+    //cheap attemt at validating the url
+    if(url.indexOf('.') < 0 || url.length < 4) {
+        res.redirect('/?err=bad_url')
+        return;
+    }
+
+    //cheap attempt at normalizing - part 2
     if(url.indexOf('://') < 3) url = 'http://'+url;
+
     models.Urls.findOrCreate({where:{url:url}}).done(function(err, theUrlRow, created){
         if(err) throw err;
         //generate a hash if the url is duplicate
