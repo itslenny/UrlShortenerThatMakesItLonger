@@ -1,6 +1,9 @@
 <% include header %>
 <h3>Long is the new short...</h3>
-<input type="text" class="form-control" value="<%= hashedUrl %>">
+<input type="text" class="form-control" value="http://<%= hashedUrl %>">
 <br><br>
-<small>Length changed from <b><%= url.length %></b> to <b><%= hashedUrl.length %></b>.</small>
+<small>
+    Length changed from <b><%= url.length %></b> to <b><%= hashedUrl.length %></b>.<br>
+    <a href="/">Make another?</a>
+</small>
 <% include footer %>
