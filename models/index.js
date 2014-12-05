@@ -9,12 +9,12 @@ var config    = require(__dirname + '/../config/config.json')[env];
 // NEEDED FOR HEROKU ///////////
 if(config.use_env_variable){
   var db_info = process.env[config.use_env_variable].match(/([^:]+):\/\/([^:]+):([^@]+)@([^:]+):(\d+)\/(.+)/);
-  console.log('---------------------------------------');
-  console.log(db_info);
-  console.log('---------------------------------------');
-  config.username=db_info[0];
-  config.password=db_info[1];
-  config.database=db_info[2];  
+  config.dialect=db_info[1];
+  config.username=db_info[2];
+  config.password=db_info[3];
+  config.host=db_info[4];  
+  config.port=db_info[5];  
+  config.database=db_info[5];  
 }
 //////////////////////////////
 
