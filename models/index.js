@@ -5,11 +5,10 @@ var path      = require("path");
 var Sequelize = require("sequelize");
 var env       = process.env.NODE_ENV || "development";
 var config    = require(__dirname + '/../config/config.json')[env];
-console.log('---- MY ENV',env);
-console.log('---- MY CONFIG',config);
+
 /// NEEDED FOR HEROKU ///////////
 if(config.use_env_variable){
-  var db_info = process.env[value].match(/([^:]+):\/\/([^:]+):([^@]+)@([^:]+):(\d+)\/(.+)/);
+  var db_info = process.env[config.use_env_variable].match(/([^:]+):\/\/([^:]+):([^@]+)@([^:]+):(\d+)\/(.+)/);
   console.log('---------------------------------------');
   console.log(db_info);
   console.log('---------------------------------------');
