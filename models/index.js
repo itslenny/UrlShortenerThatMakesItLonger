@@ -6,17 +6,17 @@ var Sequelize = require("sequelize");
 var env       = process.env.NODE_ENV || "development";
 var config    = require(__dirname + '/../config/config.json')[env];
 
-/// NEEDED FOR HEROKU ///////////
-// if(config.use_env_variable){
-//   var db_info = process.env[config.use_env_variable].match(/([^:]+):\/\/([^:]+):([^@]+)@([^:]+):(\d+)\/(.+)/);
-//   console.log('---------------------------------------');
-//   console.log(db_info);
-//   console.log('---------------------------------------');
-//   config.username=db_info[0];
-//   config.password=db_info[1];
-//   config.database=db_info[2];  
-// }
-////////////////////////////////
+// NEEDED FOR HEROKU ///////////
+if(config.use_env_variable){
+  var db_info = process.env[config.use_env_variable].match(/([^:]+):\/\/([^:]+):([^@]+)@([^:]+):(\d+)\/(.+)/);
+  console.log('---------------------------------------');
+  console.log(db_info);
+  console.log('---------------------------------------');
+  config.username=db_info[0];
+  config.password=db_info[1];
+  config.database=db_info[2];  
+}
+//////////////////////////////
 
 var sequelize = new Sequelize(config.database, config.username, config.password, config);
 var db        = {};
