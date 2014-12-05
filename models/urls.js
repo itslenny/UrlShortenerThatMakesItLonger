@@ -6,10 +6,17 @@ module.exports = function(sequelize, DataTypes) {
     hash: DataTypes.STRING
   }, {
     instanceMethods: {
-      generateHash: function(){
+      generateHash: function(hostlength){
         var Hashids = require('hashids');
         var hasher = new Hashids("this is my salt");
-        this.hash=hasher.encode(this.id);
+        var baseHash = hasher.encode(this.id);
+        //make sure the new url is longer (within reason)
+        var lenghtLimit = 1024;
+        var myChars = 'abcdefghijklmnopqrstuvwxyz0123456789';
+        while(baseHash.length+hostlength <= this.url.length && baseHash.length+hostlength < 1024){
+          baseHash+=myChars.charAt(Math.floor(Math.random() * myChars.length));
+        }
+        this.hash=baseHash;
       }
     },
     classMethods: {

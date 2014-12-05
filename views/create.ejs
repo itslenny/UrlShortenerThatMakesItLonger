@@ -1,8 +1,6 @@
 <% include header %>
-<h3>URL CREATED</h3>
-<input type="text" class="form-control" value="http://localhost:3000/<%= hash %>">
+<h3>Long is the new short...</h3>
+<input type="text" class="form-control" value="<%= hashedUrl %>">
 <br><br>
-<small>redirects to:<br><%= url %></small>
-
-
+<small>Length changed from <b><%= url.length %></b> to <b><%= hashedUrl.length %></b>.</small>
 <% include footer %>
