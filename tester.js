@@ -1,6 +1,6 @@
 var models = require("./models");
 
-models.Urls.findOrCreate({where:{url:"testurl654"}}).done(function(err,myUrl,created){
+models.Urls.findOrCreate({where:{url:"testurl654dfgdfgh"}}).done(function(err,myUrl,created){
 
     console.log('--------- WAS CREATED:',created);
 
